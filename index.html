@@ -58,6 +58,7 @@
 <script>
     // Function to add an expense to the table and store it in localStorage
  // Function to add an expense to the table and store it in localStorage
+// Function to add an expense to the table and store it in localStorage
 function addExpense() {
     var category = document.getElementById('category').value;
     var description = document.getElementById('description').value;
@@ -76,6 +77,7 @@ function addExpense() {
     expenses.push(expenseData);
     localStorage.setItem('expenses', JSON.stringify(expenses));
 }
+
 
 
     // Function to load expense data from localStorage
