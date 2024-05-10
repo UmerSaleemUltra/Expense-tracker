@@ -54,16 +54,16 @@
  // Function to add an expense to the table and store it in localStorage
 // Function to add an expense to the table and store it in localStorage
 function addExpense() {
-    var category = document.getElementById('Expense').value;
+    var Expense = document.getElementById('Expense').value;
     var description = document.getElementById('description').value;
     var amount = document.getElementById('amount').value;
     var table = document.getElementById('expenseBody');
     var newRow = table.insertRow();
-    newRow.innerHTML = '<td class="py-2 px-4">' + category + '</td><td class="py-2 px-4">' + description + '</td><td class="py-2 px-4">PKR ' + amount + '</td><td class="py-2 px-4"><button onclick="deleteExpense(this)" class="bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-2 rounded cursor-pointer">Delete</button></td>';
+    newRow.innerHTML = '<td class="py-2 px-4">' + Expense + '</td><td class="py-2 px-4">' + description + '</td><td class="py-2 px-4">PKR ' + amount + '</td><td class="py-2 px-4"><button onclick="deleteExpense(this)" class="bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-2 rounded cursor-pointer">Delete</button></td>';
     
     // Store expense data in localStorage
     var expenseData = {
-        category: Expense,
+        Expenses: Expense,
         description: description,
         amount: amount
     };
@@ -118,7 +118,7 @@ function addExpense() {
         var expenses = [];
         for (var i = 0; i < table.rows.length; i++) {
             var expense = {
-                category: table.rows[i].cells[0].innerText,
+                Expense: table.rows[i].cells[0].innerText,
                 description: table.rows[i].cells[1].innerText,
                 amount: table.rows[i].cells[2].innerText.substr(1) // Remove the dollar sign
             };
