@@ -54,7 +54,7 @@
  // Function to add an expense to the table and store it in localStorage
 // Function to add an expense to the table and store it in localStorage
 function addExpense() {
-    var category = document.getElementById('category').value;
+    var category = document.getElementById('Expense').value;
     var description = document.getElementById('description').value;
     var amount = document.getElementById('amount').value;
     var table = document.getElementById('expenseBody');
@@ -63,7 +63,7 @@ function addExpense() {
     
     // Store expense data in localStorage
     var expenseData = {
-        category: category,
+        category: Expense,
         description: description,
         amount: amount
     };
@@ -80,7 +80,7 @@ function addExpense() {
         var table = document.getElementById('expenseBody');
         expenses.forEach(function(expense) {
             var newRow = table.insertRow();
-            newRow.innerHTML = '<td class="py-2 px-4">' + expense.category + '</td><td class="py-2 px-4">' + expense.description + '</td><td class="py-2 px-4">$' + expense.amount + '</td><td class="py-2 px-4"><button onclick="deleteExpense(this)" class="bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-2 rounded cursor-pointer">Delete</button></td>';
+            newRow.innerHTML = '<td class="py-2 px-4">' + expense.Expense + '</td><td class="py-2 px-4">' + expense.description + '</td><td class="py-2 px-4">$' + expense.amount + '</td><td class="py-2 px-4"><button onclick="deleteExpense(this)" class="bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-2 rounded cursor-pointer">Delete</button></td>';
         });
     }
 
