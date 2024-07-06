@@ -277,30 +277,3 @@ function generateInvoice() {
 
     closeInvoiceModal();
 }
-
-  // Dark mode toggle functionality
-  const darkModeToggle = document.getElementById('darkModeToggle');
-  const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
-
-  darkModeToggle.addEventListener('click', () => {
-      if (prefersDarkScheme.matches) {
-          document.body.classList.toggle('light-mode');
-      } else {
-          document.body.classList.toggle('dark-mode');
-      }
-      
-      let theme;
-      if (document.body.classList.contains('dark')) {
-          theme = 'dark';
-      } else {
-          theme = 'light';
-      }
-      localStorage.setItem('theme', theme);
-  });
-
-  window.addEventListener('load', () => {
-      const currentTheme = localStorage.getItem('theme');
-      if (currentTheme == 'dark') {
-          document.body.classList.add('dark');
-      }
-  });
