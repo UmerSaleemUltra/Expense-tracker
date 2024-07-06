@@ -320,7 +320,7 @@ function generateInvoice() {
 
     var expenses = JSON.parse(localStorage.getItem('expenses')) || [];
     var tableRows = expenses.map(function(expense) {
-        return `<tr><td>${expense.expenseName}</td><td>${expense.description}</td><td>${expense.amount}</td><td>${expense.paymentMethod}</td><td>${expense.date}</td></tr>`;
+        return `<tr><td>${expense.expenseName}</td><td>${expense.description}</td><td>PKR ${expense.amount}</td><td>${expense.paymentMethod}</td><td>${expense.date}</td></tr>`;
     }).join('');
 
     var invoiceHtml = `
@@ -376,11 +376,12 @@ function generateInvoice() {
         </html>
     `;
 
-    var blob = new Blob([invoiceHtml], { type: 'text/html' });
-    var link = document.createElement('a');
-    link.href = URL.createObjectURL(blob);
-    link.download = 'invoice.html';
-    link.click();
+    var invoiceElement = document.createElement('div');
+    invoiceElement.innerHTML = invoiceHtml;
+    document.body.appendChild(invoiceElement);
+    html2pdf().from(invoiceElement).save('invoice.pdf').then(function() {
+        document.body.removeChild(invoiceElement);
+    });
 
     closeInvoiceModal();
 }
