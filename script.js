@@ -212,10 +212,10 @@ function generateInvoice() {
 
     var expenses = JSON.parse(localStorage.getItem('expenses')) || [];
     var tableRows = expenses.map(function(expense) {
-        return `<tr><td>${expense.expenseName}</td><td>${expense.description}</td><td>PKR ${expense.amount}</td><td>${expense.paymentMethod}</td><td>${expense.date}</td></tr>`;
+        return <tr><td>${expense.expenseName}</td><td>${expense.description}</td><td>PKR ${expense.amount}</td><td>${expense.paymentMethod}</td><td>${expense.date}</td></tr>;
     }).join('');
 
-    var invoiceHtml = `
+    var invoiceHtml = 
         <html>
         <head>
             <title>Invoice</title>
@@ -266,7 +266,7 @@ function generateInvoice() {
             </div>
         </body>
         </html>
-    `;
+    ;
 
     var invoiceElement = document.createElement('div');
     invoiceElement.innerHTML = invoiceHtml;
@@ -276,9 +276,4 @@ function generateInvoice() {
     });
 
     closeInvoiceModal();
-}
-
-
-function logout() {
-window.location('Authentication.html')
 }
