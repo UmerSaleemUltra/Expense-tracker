@@ -277,3 +277,8 @@ function generateInvoice() {
 
     closeInvoiceModal();
 }
+
+
+function logout() {
+window.location('Authentication.html')
+}
